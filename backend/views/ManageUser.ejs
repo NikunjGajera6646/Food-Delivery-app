@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/header.ejs'); %>
+        <title>ManageUser</title>
+</head>
+
+<body>
+    <%- include('./partials/navbar.ejs'); %>
+        <%- include('./partials/sidebar.ejs'); %>
+            <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+                <%if(message.length) { %>
+                    <div class="alert alert-success" id="alert">
+                        <%=message%>
+                    </div>
+                    <%}%>
+                        <div class="row m-0">
+                            <div class="col-12">
+                                <div class="card my-4">
+                                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                        <div class="shadow-primary border-radius-lg pt-4 pb-3"
+                                            style="background-color:red;">
+                                            <h class="text-white text-capitalize ps-3">Display User</h>
+                                        </div>
+                                    </div>
+                                    <div class="p-0">
+                                        <table class="table m-0 p-0 mt-4">
+                                            <thead class="table text-white" style="background-color: red;">
+                                                <tr>
+                                                    <th class="text-center">Delete</th>
+                                                    <th class="text-center">Name</th>
+                                                    <th class="text-center">email</th>
+                                                    <th class="text-center">moblie no</th>
+                                                    <th class="text-center">address</th>
+                                                </tr>
+                                            </thead>
+                                            <% if(data.length) { %>
+                                                <% for(let x of data) { %>
+                                                    <tr class="align-middle">
+                                                        <td class="text-center">
+                                                            <form action="/ManageUser" method="get">
+                                                                <a href="ManageUser/<%= x._id %>"
+                                                                    class="text-decoration-none text-black">
+                                                                    <i
+                                                                        class=" material-icons opacity-10 d-flex justify-content-center">delete</i>
+                                                                </a>
+                                                            </form>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <%= x.username%>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <%= x.email%>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <%= x.mobile%>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <%= x.address%>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                        <% } %>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+            </main>
+            <script>
+                const message = `<%= message %>`
+                console.log(message)
+                if (message.length) {
+                    setTimeout(() => {
+                        var alertNode = document.querySelector('#alert')
+                        alertNode.remove()
+                    }, 4000);
+                }
+            </script>
+        <%- include('./partials/script.ejs'); %>
+</body>
+
+</html>

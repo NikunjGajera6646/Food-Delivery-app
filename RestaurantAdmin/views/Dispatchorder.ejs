@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/header.ejs'); %>
+        <title>Document</title>
+</head>
+
+<body>
+    <%- include('./partials/navbar.ejs'); %>
+        <%- include('./partials/sidebar.ejs'); %>
+            <div class='dashboard-app'>
+                <!-- <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a></header> -->
+
+                <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+                    <div class="row m-0">
+                        <div class="col-12">
+                            <div class="card my-4">
+                                <div class="card-header p-0 ">
+                                    <div class="shadow-primary  pt-4 pb-3" style="background-color: blue">
+                                        <h4 class="text-white text-capitalize ps-3">Display Dispatch Order:</h4>
+                                    </div>
+                                </div>
+
+                                <div class="card mt-4 shadow-lg">
+                                    <table class="table m-0">
+                                        <thead class="table text-white" style="background-color: blue;">
+                                            <tr>
+                                                <th class="text-center">Order id</th>
+                                                <th class="text-center">quantity:</th>
+                                                <th class="text-center">User name</th>
+                                                <th class="text-center">Address</th>
+                                                <th class="text-center">Time </th>
+                                                <th class="text-center">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% if(order.length) { %>
+                                                <% for(let O of order) { %>
+
+                                                    <tr class="align-middle">
+                                                        <td class="text-center">
+                                                            <%= O.pid.itemname %>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <%= O.quantity %>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <%= O.uid.username%>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <%= O.uid.address %>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <%= moment(O.createdAt).format('hh:mm A') %>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <form class="container p-2 "
+                                                                action="/dispatchconfirm/<%= O._id%>" method="post"
+                                                                enctype="multipart/form-data">
+                                                                <input class="btn btn-primary p-2" type="submit"
+                                                                    value="confirm"> 
+                                                            </form>
+                                                        </td>
+
+                                                    </tr>
+                                                    <% } %>
+                                                        <% } %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+            </div>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/header.ejs'); %>
+        <title>Manage State</title>
+</head>
+
+<body>
+    <%- include('./partials/navbar.ejs'); %>
+        <%- include('./partials/sidebar.ejs'); %>
+            <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+                <%if(message.length) { %>
+                    <div class="alert alert-success" id="alert">
+                        <%=message%>
+                            <!-- <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"
+                                aria-label="Close"></button> -->
+                    </div>
+                    <%}%>
+                        <div class="row m-0">
+                            <div class="col-12">
+                                <div class="card my-4">
+                                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                        <div class="shadow-primary border-radius-lg pt-4 pb-3"
+                                            style="background-color: red;">
+                                            <h class="text-white text-capitalize ps-3">Insert State</h>
+                                        </div>
+                                    </div>
+                                    <form action="/admin/ManageState" method="post">
+                                        <div class="m-3 ps-4 text-dark">
+                                            <div class="mb-3 mt-3 col-8">
+                                                <label for="resname" class=" pt-2 w-25">State Name:</label>
+                                                <input type="name" class="form-control " id="state"
+                                                    placeholder="Enter State Name" name="state">
+                                            </div>
+                                            <button type="submit" class="btn btn-secondary "
+                                                style="width: 100px;">Submit</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-0">
+                            <div class="col-12">
+                                <div class="card my-4">
+                                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                        <div class="shadow-primary border-radius-lg pt-4 pb-3"
+                                            style="background-color: red;">
+                                            <h class="text-white text-capitalize ps-3">Display State</h>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-5">
+                                        <table class="table m-0 p-0 mt-4">
+                                            <thead class="table text-white" style="background-color:red;">
+                                                <tr>
+                                                    <th class="text-center"> No</th>
+                                                    <th class="text-center">State Name</th>
+                                                    <th class="text-center">Delete</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% if(state.length) { %>
+                                                    <% for(let [I,S] of state.entries())  { %>
+                                                        <tr class="align-middle">
+                                                            <td class="text-center">
+                                                               <p><%= I+1 %> </p>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <%= S.state %>
+                                                            </td>
+                                                           
+                                                            <td class="">
+                                                                <form action="/Managestate" method="get">
+                                                                    <a href="Managestate/<%= S._id %>"
+                                                                        class=" text-decoration-none text-black ">
+                                                                        <i
+                                                                            class=" material-icons opacity-10 d-flex ms-4 justify-content-center">delete</i>
+                                                                    </a>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                        <% } %>
+                                                            <% } %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+            </main>
+
+            <script>
+                const message = `<%= message %>`
+                if (message.length) {
+                    setTimeout(() => {
+                        var alertNode = document.querySelector('#alert')
+                        alertNode.remove()
+                    }, 3000);
+                }
+            </script>
+        <%- include('./partials/script.ejs'); %>
+
+</body>
+
+</html>

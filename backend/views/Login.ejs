@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/header.ejs'); %>
+        <title>Login</title>
+</head>
+
+<body style="background-image: url(https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png)">
+    
+    <div class="page-header align-items-start min-vh-100" style="background-image: url(https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png);">
+        <span class="mask bg-gradient-dark opacity-6"></span>
+        <div class="container my-auto">
+          <div class="row">
+            <div class="col-lg-4 col-md-8 col-12 mx-auto">
+              <div class="card z-index-0 fadeIn3 fadeInBottom" style="background-color: #ffffff85;
+              border-radius: 3%;">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                  <div class="shadow-primary border-radius-lg py-3 pe-1" style="background-color: red;">
+                    <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Login</h4>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form class="text-start" action="/admin/logindata" method="post" >
+                    <div class="mb-3 mt-3 col-12">
+                        <label for="email" class="text-dark">Email:</label>
+                        <input type="name" class="form-control" id="Username" placeholder="Enter Username" name="email">
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label for="pwd" class="text-dark">Password:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn  w-100 my-4 mb-2 text-white" style="background-color: red;">Login</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </main>
+    <%- include('./partials/script.ejs'); %>
+
+</body>
+</html>

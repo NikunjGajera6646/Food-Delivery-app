@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/header.ejs'); %>
+    <style>
+        .overflowset {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 150px;
+          }
+      </style>
+        <title></title>
+</head>
+
+<body>
+    <%- include('./partials/navbar.ejs'); %>
+        <%- include('./partials/sidebar.ejs'); %>
+            <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+                <div class="row m-0">
+                    <div class="col-12">
+                        <div class="card my-4">
+                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                <div class="shadow-primary border-radius-lg pt-4 pb-3" style="background-color: red;">
+                                    <h class="text-white text-capitalize ps-3">Display Product Details</h>
+                                </div>
+                            </div>
+
+                            <div class="pe-2 card">
+                                <table class="table m-0 mt-4">
+                                    <thead class="table text-white" style="background-color:red;">
+                                        <tr>
+                                            <th class="text-center">Block</th>
+                                            <th class="text-center">Restaurant Name</th>
+                                            <th class="text-center">category</th>
+                                            <th class="text-center">Product Name</th>
+                                            <th class="text-center">Product Type</th>
+                                            <th class="text-center">Price</th>
+                                            <th class="text-center">description</th>
+                                            <th class="text-center">Img</th>
+                                        </tr>
+                                    </thead>
+                                    <% if(product.length) { %>
+                                        <% for(let x of product) { %>
+                                            <tr class="align-middle">
+                                                <td class="text-center">
+                                                    <form action="/deleteproduct" method="get">
+                                                        <a href="deleteproduct/<%= x._id %>"
+                                                            class="text-decoration-none text-black">
+                                                            <i
+                                                                class=" material-icons opacity-10 d-flex justify-content-center">block</i>
+                                                        </a>
+                                                    </form>
+                                                </td>
+                                                <td class="text-center overflowset">
+                                                    <%= x.resname.resname%>
+                                                </td>
+                                                <td class="text-center">
+                                                    <%= x.category%>
+                                                </td>
+                                                <td class="text-center">
+                                                    <%= x.itemname%>
+                                                </td>
+                                                <td class="text-center">
+                                                    <%= x.itemtype%>
+                                                </td>
+                                                <td class="text-center">
+                                                    <%= x.price%>
+                                                </td>
+                                                <td class="text-center overflowset">
+                                                    <%= x.description%>
+                                                </td>
+                                                <td class="text-center">
+                                                    <img src="http://localhost:5000/<%= x.img%>" alt="Not Found"
+                                                        style="width: 100px; height: 50px; margin: 5px auto;">
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                                <% } %>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        <%- include('./partials/script.ejs'); %>
+          
+</body>
+
+</html>

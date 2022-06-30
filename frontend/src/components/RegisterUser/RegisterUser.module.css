@@ -1,0 +1,31 @@
+/* .gradientcustom {
+  background-image: url("https://cdn.pixabay.com/photo/2013/12/31/21/47/restaurant-237060_960_720.jpg");
+  background-size: cover;
+} */
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+
+.cardregistration .select-arrow {
+  top: 13px;
+}
+
+.cardback {
+  background-color: #1e1e25e6 !important;
+}
+
+.btnloginout {
+  color: white !important;
+  background-color: #ff0000 !important;
+  border-color: #ff0000 !important;
+}
+
+.btnloginout:hover {
+  color: white !important;
+  background-color: #ff1f1f9e !important;
+  border-color: #ff1f1f9e !important;
+}

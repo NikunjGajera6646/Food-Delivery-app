@@ -1,0 +1,24 @@
+.background {
+  background-color: rgb(245, 245, 245);
+}
+
+@media only screen and (max-width: 576px) {
+  .itemcardtext {
+    text-align: center;
+  }
+
+  .carditemincbtn {
+    display: flex;
+    align-self: center;
+  }
+}
+
+.borderinfocard {
+  background-color: #000000;
+  border: 20px solid rgb(146, 146, 146);
+  color: white;
+}
+
+.borderinfocardsecond{
+  border: 10px solid rgb(236, 236, 236);
+}

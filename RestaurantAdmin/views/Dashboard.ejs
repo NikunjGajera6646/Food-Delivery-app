@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include('./partials/header.ejs'); %>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" /> -->
+        <link href="../assets/css/dashboard.css" rel="stylesheet">
+
+        <title>Dashboard</title>
+</head>
+
+
+<body>
+
+
+    <%- include('./partials/sidebar.ejs'); %>
+        <%- include('./partials/navbar.ejs'); %>
+            <div class="container-fluid">
+                <div class="row">
+                    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                        <div
+                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2"></h1>
+                            <div class="container">
+                                <div class="row">
+
+
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="counter">
+                                            <a href="/manageproduct" class="text-decoration-none">
+
+                                                <div class="counter-icon">
+                                                    <i class="fa fa-sitemap"></i>
+                                                </div>
+                                                <h3>Total Product</h3>
+                                                <h4 class="counter-value">
+                                                    <% if(product.length) { %>
+                                                        <%= product.length %>
+                                                            <% }else{ %>
+                                                                <%= 0 %>
+                                                                    <% } %>
+                                                </h4>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="counter blue">
+                                            <a href="/Allorder" class="text-decoration-none">
+
+                                                <div class="counter-icon">
+                                                    <i class="fa fa-bar-chart"></i>
+                                                </div>
+                                                <h3>Total order</h3>
+                                                <h4 class="counter-value">
+                                                    <% if(orders.length) { %>
+                                                        <%= orders.length %>
+                                                            <% }else{ %>
+                                                                <%= 0 %>
+                                                                    <% } %>
+                                                </h4>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <div class="pendingabc col-md-3 col-sm-6">
+                                        <div class="counter green">
+                                            <a href="/pendingorder" class="text-decoration-none">
+                                                <div class="counter-icon">
+                                                    <i class="fa fa-bell"></i>
+                                                </div>
+                                                <h3>Total Pending order</h3>
+                                                <h4 class="counter-value pendingProducts">
+                                                    <% if(pending.length) { %>
+                                                        <%= pending.length %>
+                                                            <% }else{ %>
+                                                                <%= 0 %>
+                                                                    <% } %>
+                                                </h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="counter orange">
+                                            <a href="/Cancelorder" class="text-decoration-none">
+                                                <div class="counter-icon">
+                                                    <i class="fa fa-times-circle"></i>
+                                                </div>
+                                                <h3>Total Cancel order</h3>
+                                                <h4 class="counter-value">
+                                                    <% if(cancel.length) { %>
+                                                        <%= cancel.length %>
+                                                            <% }else{ %>
+                                                                <%= 0 %>
+                                                                    <% } %>
+                                                </h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="mt-5 row">
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="counter orange">
+                                                <a href="/processorder" class="text-decoration-none">
+                                                    <div class="counter-icon">
+                                                        <i class="fa fa-rocket"></i>
+                                                    </div>
+                                                    <h3>Total Process order</h3>
+                                                    <h4 class="counter-value">
+                                                        <% if(process.length) { %>
+                                                            <%= process.length %>
+                                                                <% }else{ %>
+                                                                    <%= 0 %>
+                                                                        <% } %>
+                                                    </h4>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="counter green">
+                                                <a href="/dispatchorder" class="text-decoration-none">
+                                                    <div class="counter-icon">
+                                                        <i class="fa fa-truck"></i>
+                                                    </div>
+                                                    <h3>Total Dispatch order</h3>
+                                                    <h4 class="counter-value">
+                                                        <% if(dispatch.length) { %>
+                                                            <%= dispatch.length %>
+                                                                <% }else{ %>
+                                                                    <%= 0 %>
+                                                                        <% } %>
+                                                    </h4>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="counter ">
+                                                <a href="/deliveredorder" class="text-decoration-none">
+                                                <div class="counter-icon">
+                                                    <i class="fa fa-line-chart"></i>
+                                                </div>
+                                                <h3>Total Delivered order</h3>
+                                                <h4 class="counter-value">
+                                                    <% if(delivered.length) { %>
+                                                        <%= delivered.length %>
+                                                            <% }else{ %>
+                                                                <%= 0 %>
+                                                                    <% } %>
+                                                </h4>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                    </main>
+                </div>
+            </div>
+</body>
+<!-- <script>
+    window.setInterval('refresh()', 3000);
+    function refresh() {
+        window.location.reload();
+    }
+</script> -->
+<script>
+    function call() {
+        const pending = document.getElementsByClassName('pendingProducts')[0]
+        fetch("/orderget")
+            .then(x => x.json())
+            .then(y => {
+                if (y.success) {
+                    // console.log(parseInt(pending.innerHTML), "html")
+                    // console.log(y.ordergets.length, "array")
+                    if (parseInt(pending.innerHTML) != y.ordergets.length) {
+                        window.alert("New Order Avalible Now")
+                    }
+                    pending.innerHTML = y.ordergets.length
+                } else {
+                    document.querySelector("#pending").innerHTML = 0
+                }
+            });
+    }
+    setInterval(call, 3000);
+</script>
+
+</html>

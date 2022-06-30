@@ -1,0 +1,14 @@
+.widthset {
+  margin-right: 0% !important;
+  margin-left: 0% !important;
+}
+.tablepl {
+  padding-left: 0px !important;
+}
+
+.overflowset {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}

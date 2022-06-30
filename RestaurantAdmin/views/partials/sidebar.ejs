@@ -1,0 +1,90 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Dashboard Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+
+
+    <script src="../../assets/jquery-3.6.0.min.js"></script>
+    <link href="../assets/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/sidbartem.css" rel="stylesheet">
+
+<body>
+
+    <div class='dashboard'>
+        <div class="dashboard-nav bg-dark">
+            <header>
+                <a href="#!" class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <a href="#" class="brand-logo">
+                    <!-- <i class="fas fa-anchor"></i> -->
+                    <span>FoodZone</span>
+                </a>
+            </header>
+            <nav class="dashboard-nav-list">
+
+                <a href="Dashboard" class="dashboard-nav-item active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    dashboard
+                </a>
+                <!-- <a href="#" class="dashboard-nav-item">
+                    <i class="fas fa-file-upload">
+                    </i> Upload </a> -->
+                <div class='dashboard-nav-dropdown'>
+                    <button class="dashboard-nav-item2 btn mb-0 dashboard-nav-dropdown-toggle"
+                        style="padding-left: 30px;">
+                        <i class="fas fa-photo-video" style="margin-right: 15px;"></i>
+                        product
+                    </button>
+                    <div class='dashboard-nav-dropdown-menu'>
+                        <a href="/product" class="dashboard-nav-dropdown-item">Add product</a>
+                        <a href="/manageproduct" class="dashboard-nav-dropdown-item">ManageProduct</a>
+                        <a href="/Blockproducts" class="dashboard-nav-dropdown-item">Blocked Product</a>
+
+                    </div>
+                </div>
+                <div class='dashboard-nav-dropdown'>
+                    <button class="dashboard-nav-item2 btn dashboard-nav-dropdown-toggle" style="padding-left: 30px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-bag-check-fill" style="margin-right: 15px;" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zm-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                        </svg>
+                        Order
+                    </button>
+                    <div class='dashboard-nav-dropdown-menu'>
+                        <a href="/Allorder" class="dashboard-nav-dropdown-item">All</a>
+                        <a href="/pendingorder" class="dashboard-nav-dropdown-item">Pending</a>
+                        <a href="/processorder" class="dashboard-nav-dropdown-item">Proccess</a>
+                        <a href="/dispatchorder" class="dashboard-nav-dropdown-item">Dispatch</a>
+                        <a href="/deliverdorder" class="dashboard-nav-dropdown-item">Delivered</a>
+                        <a href="/Cancelorder" class="dashboard-nav-dropdown-item">Cancel</a>
+                    </div>
+                </div>
+                <div class="nav-item-divider"></div>
+                <a href="Profile" class="dashboard-nav-item active" style="padding-left: 30px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                        class="bi bi-person-circle" style="margin-right: 15px;" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>
+                    Profile
+                </a>
+                <a href="/Logout" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
+            </nav>
+        </div>
+
+    </div>
+    </div>
+    </nav>
+    <script src="../../assets/sidbartem.js"></script>
+
+
+</body>
+</head>

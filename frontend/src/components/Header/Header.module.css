@@ -1,0 +1,145 @@
+.btnclr {
+  background-color: red;
+  border: 1px solid red;
+  border-radius: 20px;
+  padding: 7px 15px;
+  margin: 0 10px;
+  color: white;
+}
+
+.headtext {
+  display: flex;
+  justify-content: center;
+}
+
+.logoalign {
+  display: flex;
+  justify-content: center;
+}
+
+.loginoutbtn {
+  display: flex;
+  justify-content: center;
+}
+
+.logincardbody {
+  color: white;
+  border-radius: inherit;
+}
+
+.modalstyle {
+  background-image: linear-gradient(to top, orange, violet);
+  border-radius: 1rem !important;
+}
+
+@media (max-width: 898px) {
+  .headtext {
+    display: none;
+  }
+
+  .loginoutbtn {
+    display: flex;
+    justify-content: center;
+  }
+
+  .logoalign {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+}
+
+.zoominoutbox {
+  /* animation: zoominzoomout 1s ease infinite; */
+}
+
+@keyframes zoominzoomout {
+  /* 0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  } */
+}
+
+
+.dropbtn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdowncontent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdowncontent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdowncontent a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdowncontent {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.signoutbtn {
+  padding: 12px 16px !important;
+  cursor: pointer;
+  color: black;
+}
+
+/* .image {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
+  -webkit-animation: spin 8s linear infinite;
+  -moz-animation: spin 8s linear infinite;
+  animation: spin 8s linear infinite;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+} */

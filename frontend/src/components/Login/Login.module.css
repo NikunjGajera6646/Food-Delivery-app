@@ -1,0 +1,7 @@
+/* .gradientcustom {
+  background-image: url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1500&q=100");
+  background-size: cover;
+} */
+.cardback {
+  background-color: #081e68db !important;
+}

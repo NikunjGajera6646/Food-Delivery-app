@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/header.ejs'); %>
+        <style>
+            .overflowset {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                max-width: 120px;
+            }
+        </style>
+        <title>ManageRestuarent</title>
+
+</head>
+
+<body>
+    <%- include('./partials/navbar.ejs'); %>
+        <%- include('./partials/sidebar.ejs'); %>
+            <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+
+                <div class="mt-2">
+                    <div class="row m-0">
+                        <div class="col-12">
+
+                            <div class="row m-0">
+                                <div class="col-12">
+                                    <div class="card my-4">
+                                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                            <div class="shadow-primary border-radius-lg pt-4 pb-3"
+                                                style="background-color: red;">
+                                                <h class="text-white text-capitalize ps-3">Display Payments Details:
+                                                </h>
+                                            </div>
+                                        </div>
+
+                                        <div class="card mt-4 shadow-lg">
+                                            <table class="table m-0">
+                                                <thead class="table text-white" style="background-color: red;">
+                                                    <tr>
+                                                        <th class="text-center">Order</th>
+                                                        <th class="text-center">Contect No</th>
+                                                        <th class="text-center">User name</th>
+                                                        <th class="text-center">Address</th>
+                                                        <th class="text-center">PaymentType</th>
+                                                        <th class="text-center">Paymentstatus</th>
+                                                        <th class="text-center">Time </th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% if(order.length) { %>
+                                                        <% for(let O of order) { %>
+
+                                                            <tr class="align-middle">
+                                                                <td class="text-center">
+                                                                    <%= O.pid.itemname %>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <%= O.uid.mobile%>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <%= O.uid.username%>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <%= O.uid.address %>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <%= O.PaymentType %>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <%= O.Paymentstatus %>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <%= moment(O.createdAt).format('hh:mm A') %>
+                                                                </td>
+                                                            </tr>
+                                                            <% } %>
+                                                                <% } %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            </main>
+            </div>
+            </main>
+
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+.stycard:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.stycard::before,
+.stycard::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: scale3d(0, 0, 1);
+  transition: transform 0.3s ease-out 0s;
+  /* background: rgba(255, 255, 255, 0.1); */
+  content: "";
+  pointer-events: none;
+}
+.stycard::before {
+  transform-origin: left top;
+}
+.stycard::after {
+  transform-origin: right bottom;
+}
+.stycard:hover::before,
+.stycard:hover::after,
+.stycard:focus::before,
+.stycard:focus::after {
+  transform: scale3d(1, 1, 1);
+}
+.cardimg {
+  height: 12rem;
+  border-radius: inherit;
+}
+.cartbtn {
+  background-color: red !important;
+  color: white !important;
+}
+
+.cartbtn:hover {
+  background-color: rgb(247, 102, 102) !important;
+}
+
+.redirectlink{
+  width: 90px !important;
+  height: max-content;
+}

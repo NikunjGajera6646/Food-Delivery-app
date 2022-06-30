@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/header.ejs'); %>
+        <style>
+            .overflowset {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                max-width: 120px;
+            }
+        </style>
+        <title>ManageRestuarent</title>
+
+</head>
+
+<body>
+    <%- include('./partials/navbar.ejs'); %>
+        <%- include('./partials/sidebar.ejs'); %>
+            <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+                <%if(message.length) { %>
+                    <div class="alert alert-success" id="alert">
+                        <%=message%>
+                    </div>
+                    <%}%>
+                        <%if(messages.length) { %>
+                            <div class="alert alert-danger" id="alert">
+                                <%=messages%>
+                            </div>
+                            <%}%>
+                                <div class="mt-2">
+                                    <div class="row m-0">
+                                        <div class="col-12">
+                                                
+                                    <div class="row m-0">
+                                        <div class="col-12">
+                                            <div class="card my-4">
+                                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                                    <div class="shadow-primary border-radius-lg pt-4 pb-3"
+                                                        style="background-color: red;">
+                                                        <h class="text-white text-capitalize ps-3">Display Resturent:
+                                                        </h>
+                                                    </div>
+                                                </div>
+
+                                                <div class="card mt-4 shadow-lg">
+                                                    <table class="table m-0">
+                                                        <thead class="table text-white" style="background-color: red;">
+                                                            <tr>
+                                                                <th class="text-center">Restaurant Name</th>
+                                                                <th class="text-center">img</th>
+                                                                <th class="text-center">type</th>
+                                                                <th class="text-center">address</th>
+                                                                <th class="text-center">Contact No</th>
+                                                                <th class="text-center">city</th>
+                                                                <th class="text-center">state</th>
+                                                                <th class="text-center">Area</th>
+                                                                <th class="text-center">Block</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% if(res.length) { %>
+                                                                <% for(let R of res) { %>
+
+                                                                    <tr class="align-middle">
+                                                                        <td class="text-center overflowset">
+                                                                            <%= R.resname %>
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <img src="http://localhost:5000/<%= R.img %>" alt="Not Found"
+                                                                                style="width: 100px; height: 50px; margin: 5px auto;">
+                                                                        </td>
+                                                                        <td class="text-center overflowset">
+                                                                            <%= R.type%>
+                                                                        </td>
+                                                                        <td class="text-center overflowset">
+                                                                            <%= R.address%>
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <%= R.contactno%>
+                                                                        </td>
+                                                                        <td class="text-center overflowset">
+                                                                            <%= R.city%>
+                                                                        </td>
+                                                                        <td class="text-center overflowset">
+                                                                            <%= R.state%>
+                                                                        </td>
+                                                                        <td class="text-center overflowset">
+                                                                            <%= R.area%>
+                                                                        </td>
+                                                                   
+                                                                        <td class="text-center">
+                                                                            <form action="/ManageRestaurant"
+                                                                                method="get">
+                                                                                <a href="ManageRestaurant/<%= R._id %>"
+                                                                                    class="text-decoration-none text-black">
+                                                                                    <i
+                                                                                        class=" material-icons opacity-10 d-flex justify-content-center">block</i>
+                                                                                </a>
+                                                                            </form>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <% } %>
+                                                                        <% } %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+            </main>
+            </div>
+            </main>
+            <script>
+                const message = `<%= message %>`
+                if (message.length) {
+                    setTimeout(() => {
+                        var alertNode = document.querySelector('#alert')
+                        alertNode.remove()
+                    }, 3000);
+                }
+                const messages = `<%= messages %>`
+                if (messages.length) {
+                    setTimeout(() => {
+                        var alertNode = document.querySelector('#alert')
+                        alertNode.remove()
+                    }, 3000);
+                }
+            </script>
+        <%- include('./partials/script.ejs'); %>
+            
+</body>
+
+</html>

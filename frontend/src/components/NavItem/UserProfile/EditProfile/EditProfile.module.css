@@ -1,0 +1,18 @@
+.empprofile {
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+  }
+  
+.cardheaderback {
+    background-color: red;
+    border-radius: 10px;
+    color: black;
+  }
+  
+  .cardheader {
+    /* border-radius: 20px; */
+    margin-top: -1.5rem;
+  }
